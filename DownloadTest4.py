@@ -35,13 +35,14 @@ def getGalleryList():
 def loadGalleryPage():
 	global galleryList, galleryPages
 	print("Loading Gallery Page")
-	try:
-		for page in galleryList:
+	
+	for page in galleryList:
+		try:
 			with urllib.request.urlopen(page) as f:
 				galleryPages.append(f.read())
-	except Exception as e:
-		print("Unexpected Error: ", exc_info()[0], e)
-		print("Error at loadGalleryPage")
+		except Exception as e:
+			print("Unexpected Error: ", exc_info()[0], e)
+			print("Error at loadGalleryPage")
 
 def loadImagePage(pageUrl):
 	try:
